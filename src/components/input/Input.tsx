@@ -1,5 +1,7 @@
 import {TextField} from "@mui/material";
 import styled from "@emotion/styled";
+import {useContext, useState} from "react";
+import {useProductContext} from "../../context/productsContext";
 
 const Container = styled.div`
   flex: 1;
@@ -7,9 +9,18 @@ const Container = styled.div`
 `
 
 const Input = () => {
+    const [value, setValue] = useState('');
+    const {updateProductsQuery} = useProductContext()
+    const onChange = (e: any) => {
+        setValue(e.target.value)
+        updateProductsQuery(e.target.value)
+    }
     return (
         <Container>
-            <TextField id="outlined-basic" label="Outlined" fullWidth={true} variant="outlined"/>
+            <TextField
+                value={value}
+                onChange={onChange}
+                id="outlined-basic" label="Outlined" fullWidth={true} variant="outlined"/>
         </Container>
     )
 }

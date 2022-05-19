@@ -1,24 +1,42 @@
 import styled from "@emotion/styled";
 import IconCartWithBadge from "../../components/iconBadge/IconCartWithBadge";
+import {ProductProps} from "../../@types/productTypes";
+import {ComponentPropsWithoutRef} from "react";
+import {motion} from "framer-motion"
 
 const Container = styled.div`
-
-  border-radius: 4px;
-  border: 2px dashed rgba(0, 0, 0, 0.25);;
-  margin: 0 auto;
-  width: 250px;
-  height: 150px;
-  padding: 24px;
-  gap: 12px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 24px
+  .container {
+    border-radius: 4px;
+    border: 2px dashed rgba(0, 0, 0, 0.25);;
+    margin: 0 auto;
+    width: 450px;
+    height: 250px;
+    padding: 24px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 24px
+  }
 `
-const Cart = () => {
+
+interface CartProps extends ComponentPropsWithoutRef<"div"> {
+    shoppingCart: ProductProps[]
+}
+
+const Cart = ({shoppingCart}: CartProps) => {
     return (
         <Container>
-            <IconCartWithBadge items={3}/>
-            Trae tus productos hasta aquí
+            <motion.div
+                id={'cart-container'}
+                className="container"
+                whileHover={{border: "2px dashed #008bff"}}
+
+            >
+                <IconCartWithBadge items={shoppingCart.length ?? 0}/>
+                Trae tus productos hasta aquí
+            </motion.div>
         </Container>
 
     )
