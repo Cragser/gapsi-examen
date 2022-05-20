@@ -1,5 +1,5 @@
 import {useReducer} from "react";
-import cartReducer, {actionsCart, CartActionsType} from "../reducer/cartReducer";
+import cartReducer, {actionsCart} from "../reducer/cartReducer";
 import {ProductProps} from "../@types/productTypes";
 import productReducer, {actionsProduct} from "../reducer/productReducer";
 import fetchProduct, {fetchProductPagination} from "../fetch/fetchProduct";
@@ -65,8 +65,8 @@ const useShoppingCart = () => {
 
     return {
         shoppingCart,
-        addToCart,
         listProducts,
+        addToCart,
         updateProductsQuery,
         addMoreProducts,
         clearProducts
