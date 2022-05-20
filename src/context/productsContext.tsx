@@ -4,11 +4,13 @@ import {ProductProps} from "../@types/productTypes";
 interface ContextProps {
     products: ProductProps[];
     updateProductsQuery: (query: string) => void;
+    clearProducts: () => void;
 }
 
 const ProductContext = createContext<ContextProps>({
     products: [],
-    updateProductsQuery: () => {}
+    updateProductsQuery: () => {},
+    clearProducts: () => {}
 })
 
 

@@ -7,15 +7,16 @@ import useShoppingCart from "./hooks/useShoppingCart";
 import './App.css'
 
 function App() {
-    const {shoppingCart, addToCart, listProducts, updateProductsQuery} = useShoppingCart();
+    const {shoppingCart, addToCart, listProducts, updateProductsQuery, addMoreProducts, clearProducts} = useShoppingCart();
     return (
         <ProductContext.Provider value={{
             products: listProducts.products,
-            updateProductsQuery
+            updateProductsQuery,
+            clearProducts
         }}>
             <Header/>
             <Cart shoppingCart={shoppingCart.products}/>
-            <ListProducts addToCart={addToCart}/>
+            <ListProducts addToCart={addToCart} addMoreProducts={addMoreProducts}/>
         </ProductContext.Provider>
     )
 }

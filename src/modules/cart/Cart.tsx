@@ -5,10 +5,16 @@ import {ComponentPropsWithoutRef} from "react";
 import {motion} from "framer-motion"
 
 const Container = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  padding: 2rem;
+
   .container {
     border-radius: 4px;
     border: 2px dashed rgba(0, 0, 0, 0.25);;
-    margin: 0 auto;
+
     width: 450px;
     height: 250px;
     padding: 24px;
@@ -17,7 +23,6 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-top: 24px
   }
 `
 

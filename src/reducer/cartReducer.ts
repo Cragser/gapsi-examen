@@ -38,6 +38,13 @@ export const cartReducer = (state: CartState, action: CartAction) => {
     }
 }
 
-export {CartActionsType};
+const actionsCart = (dispatch: Function) => {
+    return {
+        clearCart: () => dispatch({type: 'CLEAR_CART'}),
+        addProductToCart: (product: ProductProps) => dispatch({type: 'ADD_ITEM', payload: product}),
+    }
+}
+
+export {CartActionsType, actionsCart};
 export type {CartState};
 export default cartReducer

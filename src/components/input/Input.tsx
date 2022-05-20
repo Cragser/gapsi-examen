@@ -11,6 +11,8 @@ const Container = styled.div`
 const Input = () => {
     const [value, setValue] = useState('');
     const {updateProductsQuery} = useProductContext()
+
+
     const onChange = (e: any) => {
         setValue(e.target.value)
         updateProductsQuery(e.target.value)
@@ -20,7 +22,7 @@ const Input = () => {
             <TextField
                 value={value}
                 onChange={onChange}
-                id="outlined-basic" label="Outlined" fullWidth={true} variant="outlined"/>
+                id="outlined-basic" label="Escribe el producto que te interesa buscar" fullWidth={true} variant="outlined"/>
         </Container>
     )
 }
